@@ -55,8 +55,11 @@ if CLIENT then
             LANG.AddToLanguage("English", "body_found_" .. ROLES.JACKAL.abbr, "This was a Jackal...")
             LANG.AddToLanguage("English", "search_role_" .. ROLES.JACKAL.abbr, "This person was a Jackal!")
             LANG.AddToLanguage("English", "target_" .. ROLES.JACKAL.name, "Jackal")
-            LANG.AddToLanguage("English", "ttt2_desc_" .. ROLES.JACKAL.name, [[The Jackal needs to win alone or with his sidekick]])
-            
+            LANG.AddToLanguage("English", "ttt2_desc_" .. ROLES.JACKAL.name, [[The Jackal needs to win alone or with his sidekick!]])
+			LANG.AddToLanguage("English", "hilite_win_" .. ROLES.JACKAL.name, "THE JACK WON") -- name of base role of a team -> maybe access with GetTeamRoles(ROLES.SERIALKILLER.team)[1].name
+			LANG.AddToLanguage("English", "win_" .. ROLES.JACKAL.team, "The Jackal has won!") -- teamname
+			LANG.AddToLanguage("English", "ev_win_" .. ROLES.JACKAL.abbr, "The evil Jackal won the round!")
+			
             -- optional for toggling whether player can avoid the role
             LANG.AddToLanguage("English", "set_avoid_" .. ROLES.JACKAL.abbr, "Avoid being selected as Jackal!")
             LANG.AddToLanguage("English", "set_avoid_" .. ROLES.JACKAL.abbr .. "_tip", 
@@ -73,6 +76,9 @@ if CLIENT then
             LANG.AddToLanguage("Deutsch", "search_role_" .. ROLES.JACKAL.abbr, "Diese Person war ein Jackal!")
             LANG.AddToLanguage("Deutsch", "target_" .. ROLES.JACKAL.name, "Jackal")
             LANG.AddToLanguage("Deutsch", "ttt2_desc_" .. ROLES.JACKAL.name, [[Der Jackal muss alleine oder mit seinem Sidekick gewinnen!]])
+			LANG.AddToLanguage("Deutsch", "hilite_win_" .. ROLES.JACKAL.name, "THE JACK WON") -- name of base role of a team -> maybe access with GetTeamRoles(ROLES.SERIALKILLER.team)[1].name
+			LANG.AddToLanguage("Deutsch", "win_" .. ROLES.JACKAL.team, "Der Jackal hat gewonnen!") -- teamname
+			LANG.AddToLanguage("Deutsch", "ev_win_" .. ROLES.JACKAL.abbr, "Der böse Jackal hat die Runde gewonnen!")
             
             LANG.AddToLanguage("Deutsch", "set_avoid_" .. ROLES.JACKAL.abbr, "Vermeide als Jackal ausgewählt zu werden!")
             LANG.AddToLanguage("Deutsch", "set_avoid_" .. ROLES.JACKAL.abbr .. "_tip", 
