@@ -38,7 +38,8 @@ AddCustomRole("JACKAL", { -- first param is access for ROLES array => ROLES["JAC
     minPlayers = 7, -- minimum amount of players until this role is able to get selected
     credits = 3, -- the starting credits of a specific role
     togglable = true, -- option to toggle a role for a client if possible (F1 menu)
-    random = 50
+    random = 50,
+	shopFallback = SHOP_FALLBACK_TRAITOR
 })
 
 -- if sync of roles has finished
