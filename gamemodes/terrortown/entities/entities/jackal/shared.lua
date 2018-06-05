@@ -17,30 +17,32 @@ JACKAL_EQUIPMENT = {
     EQUIP_DISGUISE
 }
 
--- important to add roles with this function,
--- because it does more than just access the array ! e.g. updating other arrays
-AddCustomRole("JACKAL", { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
-	color = Color(59, 215, 222, 255), -- ...
-	dkcolor = Color(59, 215, 222, 255), -- ...
-	bgcolor = Color(59, 215, 222, 200), -- ...
-	name = "jackal", -- just a unique name for the script to determine
-	printName = "Jackal", -- The text that is printed to the player, e.g. in role alert
-	abbr = "jack", -- abbreviation
-	shop = true, -- can the role access the [C] shop ? -> credits should be set
-	team = "jacks", -- the team name: roles with same team name are working together
-	defaultEquipment = JACKAL_EQUIPMENT, -- here you can set up your own default equipment
-    surviveBonus = 0, -- bonus multiplier for every survive while another player was killed
-    scoreKillsMultiplier = 1, -- multiplier for kill of player of another team
-    scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
-}, {
-    pct = 0.14, -- necessary: percentage of getting this role selected (per player)
-    maximum = 1, -- maximum amount of roles in a round
-    minPlayers = 7, -- minimum amount of players until this role is able to get selected
-    credits = 3, -- the starting credits of a specific role
-    togglable = true, -- option to toggle a role for a client if possible (F1 menu)
-    random = 50,
-	shopFallback = SHOP_FALLBACK_TRAITOR
-})
+hook.Add("Initialize", "TTT2InitCRoleJack", function()
+	-- important to add roles with this function,
+	-- because it does more than just access the array ! e.g. updating other arrays
+	AddCustomRole("JACKAL", { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
+		color = Color(59, 215, 222, 255), -- ...
+		dkcolor = Color(59, 215, 222, 255), -- ...
+		bgcolor = Color(59, 215, 222, 200), -- ...
+		name = "jackal", -- just a unique name for the script to determine
+		printName = "Jackal", -- The text that is printed to the player, e.g. in role alert
+		abbr = "jack", -- abbreviation
+		shop = true, -- can the role access the [C] shop ? -> credits should be set
+		team = "jacks", -- the team name: roles with same team name are working together
+		defaultEquipment = JACKAL_EQUIPMENT, -- here you can set up your own default equipment
+		surviveBonus = 0, -- bonus multiplier for every survive while another player was killed
+		scoreKillsMultiplier = 1, -- multiplier for kill of player of another team
+		scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
+	}, {
+		pct = 0.14, -- necessary: percentage of getting this role selected (per player)
+		maximum = 1, -- maximum amount of roles in a round
+		minPlayers = 7, -- minimum amount of players until this role is able to get selected
+		credits = 3, -- the starting credits of a specific role
+		togglable = true, -- option to toggle a role for a client if possible (F1 menu)
+		random = 50,
+		shopFallback = SHOP_FALLBACK_TRAITOR
+	})
+end)
 
 -- if sync of roles has finished
 if CLIENT then
