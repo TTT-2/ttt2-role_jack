@@ -88,13 +88,13 @@ if CLIENT then
                 [[Aktivieren, um beim Server anzufragen, nicht als Jackal ausgewählt zu werden. Das bedeuted nicht, dass du öfter Traitor wirst!]])
         end
     end)
-	
+else
 	-- modify roles table of rolesetup addon
 	hook.Add("TTTAModifyRolesTable", "ModifyRoleJackToInno", function(rolesTable)
-		for role in pairs(rolesTable) do
-			if role == ROLES.JACKAL.index then
-				roles[ROLE_INNOCENT] = roles[ROLE_INNOCENT] + roles[ROLES.JACKAL.index]
-			end
-		end
+		local jackals = rolesTable[ROLES.JACKAL.index]
+		
+		if not jackals then return end
+		
+		rolesTable[ROLES.INNOCENT.index] = rolesTable[ROLES.INNOCENT.index] + jackals
 	end)
 end
