@@ -31,7 +31,8 @@ hook.Add("Initialize", "TTT2InitCRoleJack", function()
 		surviveBonus = 0, -- bonus multiplier for every survive while another player was killed
 		scoreKillsMultiplier = 1, -- multiplier for kill of player of another team
 		scoreTeamKillsMultiplier = -8, -- multiplier for teamkill
-		fallbackTable = {}
+		fallbackTable = {},
+		traitorCreditAward = true -- will receive credits on kill like a traitor
 	}, {
 		pct = 0.14, -- necessary: percentage of getting this role selected (per player)
 		maximum = 1, -- maximum amount of roles in a round
@@ -65,6 +66,7 @@ if CLIENT then
 			LANG.AddToLanguage("English", "hilite_win_" .. ROLES.JACKAL.name, "THE JACK WON") -- name of base role of a team -> maybe access with GetTeamRoles(ROLES.SERIALKILLER.team)[1].name
 			LANG.AddToLanguage("English", "win_" .. ROLES.JACKAL.team, "The Jackal has won!") -- teamname
 			LANG.AddToLanguage("English", "ev_win_" .. ROLES.JACKAL.abbr, "The evil Jackal won the round!")
+			LANG.AddToLanguage("English", "credit_" .. ROLES.JACKAL.abbr .. "_all", "Jackals, you have been awarded {num} equipment credit(s) for your performance.")
 			
 			-- optional for toggling whether player can avoid the role
 			LANG.AddToLanguage("English", "set_avoid_" .. ROLES.JACKAL.abbr, "Avoid being selected as Jackal!")
@@ -85,6 +87,7 @@ if CLIENT then
 			LANG.AddToLanguage("Deutsch", "hilite_win_" .. ROLES.JACKAL.name, "THE JACK WON") -- name of base role of a team -> maybe access with GetTeamRoles(ROLES.SERIALKILLER.team)[1].name
 			LANG.AddToLanguage("Deutsch", "win_" .. ROLES.JACKAL.team, "Der Jackal hat gewonnen!") -- teamname
 			LANG.AddToLanguage("Deutsch", "ev_win_" .. ROLES.JACKAL.abbr, "Der böse Jackal hat die Runde gewonnen!")
+			LANG.AddToLanguage("Deutsch", "credit_" .. ROLES.JACKAL.abbr .. "_all", "Jackale, euch wurde(n) {num} Ausrüstungs-Credit(s) für eure Leistung gegeben.")
 			
 			LANG.AddToLanguage("Deutsch", "set_avoid_" .. ROLES.JACKAL.abbr, "Vermeide als Jackal ausgewählt zu werden!")
 			LANG.AddToLanguage("Deutsch", "set_avoid_" .. ROLES.JACKAL.abbr .. "_tip", 
