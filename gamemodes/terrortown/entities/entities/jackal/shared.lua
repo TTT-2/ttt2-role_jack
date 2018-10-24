@@ -20,7 +20,7 @@ JACKAL_EQUIPMENT = {
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
 InitCustomTeam("JACKAL", {
-		icon = "vgui/ttt/icon_jack",
+		icon = "vgui/ttt/sprite_jack",
 		color = Color(59, 215, 222, 255)
 })
 
