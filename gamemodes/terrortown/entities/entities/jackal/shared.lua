@@ -54,9 +54,18 @@ hook.Add("InitFallbackShops", "JackInitFallback", function()
 	InitFallbackShop(JACKAL, table.Merge(JACKAL.fallbackTable, TRAITOR.fallbackTable)) -- merge jackal equipment with traitor equipment
 end)
 
--- if sync of roles has finished
-if CLIENT then
-	hook.Add("TTT2FinishedLoading", "JackInitT", function()
+
+hook.Add("TTT2FinishedLoading", "JackInitT", function()
+	if SERVER and JESTER then
+		-- add a easy role filtering to receive all jesters
+		-- but just do it, when the role was created, then update it with recommended function
+		-- theoretically this function is not necessary to call, but maybe there are some modifications
+		-- of other addons. So it's better to use this function
+		-- because it calls hooks and is doing some networking
+		JACKAL.networkRoles = {JESTER}
+	end
+
+	if CLIENT then
 		-- setup here is not necessary but if you want to access the role data, you need to start here
 		-- setup basic translation !
 		LANG.AddToLanguage("English", JACKAL.name, "Jackal")
@@ -87,8 +96,10 @@ if CLIENT then
 		LANG.AddToLanguage("Deutsch", "win_" .. TEAM_JACKAL, "Der Jackal hat gewonnen!") -- teamname
 		LANG.AddToLanguage("Deutsch", "ev_win_" .. TEAM_JACKAL, "Der böse Jackal hat die Runde gewonnen!")
 		LANG.AddToLanguage("Deutsch", "credit_" .. JACKAL.abbr .. "_all", "Jackale, euch wurde(n) {num} Ausrüstungs-Credit(s) für eure Leistung gegeben.")
-	end)
-else
+	end
+end)
+
+if SERVER then
 	-- modify roles table of rolesetup addon
 	hook.Add("TTTAModifyRolesTable", "ModifyRoleJackToInno", function(rolesTable)
 		local jackals = rolesTable[ROLE_JACKAL]
