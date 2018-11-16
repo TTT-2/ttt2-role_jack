@@ -5,6 +5,8 @@ if SERVER then
 	resource.AddFile("materials/vgui/ttt/sprite_jack.vmt")
 end
 
+local roleName = "JACKAL"
+
 JACKAL_EQUIPMENT = {
 	"weapon_ttt_flaregun",
 	"weapon_ttt_knife",
@@ -19,18 +21,17 @@ JACKAL_EQUIPMENT = {
 
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
-InitCustomTeam("JACKAL", {
+InitCustomTeam(roleName, {
 		icon = "vgui/ttt/sprite_jack",
 		color = Color(59, 215, 222, 255)
 })
 
 -- important to add roles with this function,
 -- because it does more than just access the array ! e.g. updating other arrays
-InitCustomRole("JACKAL", { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
+InitCustomRole(roleName, { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
 		color = Color(59, 215, 222, 255), -- ...
 		dkcolor = Color(1, 184, 193, 255), -- ...
 		bgcolor = Color(255, 154, 67, 255), -- ...
-		name = "jackal", -- just a unique name for the script to determine
 		abbr = "jack", -- abbreviation
 		defaultTeam = TEAM_JACKAL, -- the team name: roles with same team name are working together
 		defaultEquipment = JACKAL_EQUIPMENT, -- here you can set up your own default equipment
@@ -69,6 +70,7 @@ hook.Add("TTT2FinishedLoading", "JackInitT", function()
 		-- setup here is not necessary but if you want to access the role data, you need to start here
 		-- setup basic translation !
 		LANG.AddToLanguage("English", JACKAL.name, "Jackal")
+		LANG.AddToLanguage("English", TEAM_JACKAL, "TEAM Jackal")
 		LANG.AddToLanguage("English", "info_popup_" .. JACKAL.name,
 			[[You are the Jackal!
 			Try to kill each other role! It's hard, so maybe you need a Sidekick...]])
@@ -85,6 +87,7 @@ hook.Add("TTT2FinishedLoading", "JackInitT", function()
 
 		-- maybe this language as well...
 		LANG.AddToLanguage("Deutsch", JACKAL.name, "Jackal")
+		LANG.AddToLanguage("Deutsch", TEAM_JACKAL, "TEAM Jackal")
 		LANG.AddToLanguage("Deutsch", "info_popup_" .. JACKAL.name,
 			[[Du bist ein Jackal!
 			Versuche jede andere Rolle zu töten! Es ist schwer, also brauchst du vielleicht einen Sidekick]])
