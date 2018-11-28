@@ -1,8 +1,7 @@
 if SERVER then
 	AddCSLuaFile()
 
-	resource.AddFile("materials/vgui/ttt/icon_jack.vmt")
-	resource.AddFile("materials/vgui/ttt/sprite_jack.vmt")
+	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_jack.vmt")
 end
 
 local roleName = "JACKAL"
@@ -22,16 +21,16 @@ JACKAL_EQUIPMENT = {
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
 InitCustomTeam(roleName, {
-		icon = "vgui/ttt/sprite_jack",
-		color = Color(59, 215, 222, 255)
+		icon = "vgui/ttt/dynamic/roles/icon_jack",
+		color = Color(100, 190, 205, 255)
 })
 
 -- important to add roles with this function,
 -- because it does more than just access the array ! e.g. updating other arrays
 InitCustomRole(roleName, { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
-		color = Color(59, 215, 222, 255), -- ...
-		dkcolor = Color(1, 184, 193, 255), -- ...
-		bgcolor = Color(255, 154, 67, 255), -- ...
+		color = Color(100, 190, 205, 255), -- ...
+		dkcolor = Color(36, 134, 152, 255), -- ...
+		bgcolor = Color(255, 188, 121, 255), -- ...
 		abbr = "jack", -- abbreviation
 		defaultTeam = TEAM_JACKAL, -- the team name: roles with same team name are working together
 		defaultEquipment = JACKAL_EQUIPMENT, -- here you can set up your own default equipment
