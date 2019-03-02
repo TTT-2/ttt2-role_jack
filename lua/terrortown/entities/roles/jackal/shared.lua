@@ -4,8 +4,6 @@ if SERVER then
 	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_jack.vmt")
 end
 
-local roleName = "JACKAL"
-
 JACKAL_EQUIPMENT = {
 	"weapon_ttt_flaregun",
 	"weapon_ttt_knife",
@@ -20,33 +18,31 @@ JACKAL_EQUIPMENT = {
 
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
-InitCustomTeam(roleName, {
+roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
 		icon = "vgui/ttt/dynamic/roles/icon_jack",
 		color = Color(100, 190, 205, 255)
 })
 
--- important to add roles with this function,
--- because it does more than just access the array ! e.g. updating other arrays
-InitCustomRole(roleName, { -- first param is access for ROLES array => ROLES["JACKAL"] or ROLES["JESTER"]
-		color = Color(100, 190, 205, 255), -- ...
-		dkcolor = Color(36, 134, 152, 255), -- ...
-		bgcolor = Color(255, 188, 121, 255), -- ...
-		abbr = "jack", -- abbreviation
-		defaultTeam = TEAM_JACKAL, -- the team name: roles with same team name are working together
-		defaultEquipment = JACKAL_EQUIPMENT, -- here you can set up your own default equipment
-		surviveBonus = 0, -- bonus multiplier for every survive while another player was killed
-		scoreKillsMultiplier = 1, -- multiplier for kill of player of another team
-		scoreTeamKillsMultiplier = -8, -- multiplier for teamkill
-		fallbackTable = {},
-		traitorCreditAward = true -- will receive credits on kill like a traitor
-	}, {
-		pct = 0.14, -- necessary: percentage of getting this role selected (per player)
-		maximum = 1, -- maximum amount of roles in a round
-		minPlayers = 7, -- minimum amount of players until this role is able to get selected
-		credits = 3, -- the starting credits of a specific role
-		togglable = true, -- option to toggle a role for a client if possible (F1 menu)
-		random = 50
-})
+ROLE.color = Color(100, 190, 205, 255) -- ...
+ROLE.dkcolor = Color(36, 134, 152, 255) -- ...
+ROLE.bgcolor = Color(255, 188, 121, 255) -- ...
+ROLE.abbr = "jack" -- abbreviation
+ROLE.defaultTeam = TEAM_JACKAL -- the team name: roles with same team name are working together
+ROLE.defaultEquipment = JACKAL_EQUIPMENT -- here you can set up your own default equipment
+ROLE.surviveBonus = 0 -- bonus multiplier for every survive while another player was killed
+ROLE.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
+ROLE.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
+ROLE.fallbackTable = {}
+ROLE.traitorCreditAward = true -- will receive credits on kill like a traitor
+
+ROLE.conVarData = {
+	pct = 0.14, -- necessary: percentage of getting this role selected (per player)
+	maximum = 1, -- maximum amount of roles in a round
+	minPlayers = 7, -- minimum amount of players until this role is able to get selected
+	credits = 3, -- the starting credits of a specific role
+	togglable = true, -- option to toggle a role for a client if possible (F1 menu)
+	random = 50
+}
 
 -- init jackal fallback table
 hook.Add("InitFallbackShops", "JackInitFallback", function()
