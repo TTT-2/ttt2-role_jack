@@ -107,4 +107,14 @@ if SERVER then
 		rolesTable[ROLE_INNOCENT] = rolesTable[ROLE_INNOCENT] + jackals
 		rolesTable[ROLE_JACKAL] = 0
 	end)
+
+	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveDeagle", function(ply, old, new)
+		if not ROLE_SIDEKICK then return end
+		
+		if new == ROLE_JACKAL then
+			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
+		elseif old == ROLE_JACKAL then
+			ply:StripWeapon("weapon_ttt2_sidekickdeagle")
+		end
+	end)
 end
