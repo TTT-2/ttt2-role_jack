@@ -23,6 +23,8 @@ roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
 		color = Color(100, 190, 205, 255)
 })
 
+ROLE.Base = "ttt_role_base"
+
 ROLE.color = Color(100, 190, 205, 255) -- ...
 ROLE.dkcolor = Color(36, 134, 152, 255) -- ...
 ROLE.bgcolor = Color(255, 188, 121, 255) -- ...
@@ -49,7 +51,6 @@ hook.Add("InitFallbackShops", "JackInitFallback", function()
 	-- init fallback shop
 	InitFallbackShop(JACKAL, table.Merge(JACKAL.fallbackTable, TRAITOR.fallbackTable)) -- merge jackal equipment with traitor equipment
 end)
-
 
 hook.Add("TTT2FinishedLoading", "JackInitT", function()
 	if SERVER and JESTER then
