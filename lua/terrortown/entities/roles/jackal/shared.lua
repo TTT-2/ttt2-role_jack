@@ -98,7 +98,7 @@ hook.Add("TTT2FinishedLoading", "JackInitT", function()
 	end
 end)
 
-if SERVER then
+if SERVER then	
 	-- modify roles table of rolesetup addon
 	hook.Add("TTTAModifyRolesTable", "ModifyRoleJackToInno", function(rolesTable)
 		local jackals = rolesTable[ROLE_JACKAL]
@@ -109,13 +109,19 @@ if SERVER then
 		rolesTable[ROLE_JACKAL] = 0
 	end)
 
-	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveDeagle", function(ply, old, new)
+	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveEquip", function(ply, old, new)
 		if not ROLE_SIDEKICK then return end
 		
 		if new == ROLE_JACKAL then
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
+			ply:GiveEquipmentItem("item_ttt_armor")
 		elseif old == ROLE_JACKAL then
 			ply:StripWeapon("weapon_ttt2_sidekickdeagle")
 		end
 	end)
+
+	hook.Add('PlayerSpawn', 'TTT2JackalGiveEquip_Respawn', function(ply, old, new) -- called on player respawn
+        if ply:GetSubRole() ~= ROLE_JACKAL then return end
+        ply:GiveEquipmentItem("item_ttt_armor")
+    end)
 end
