@@ -120,8 +120,8 @@ if SERVER then
 		end
 	end)
 
-	hook.Add('PlayerSpawn', 'TTT2JackalGiveEquip_Respawn', function(ply, old, new) -- called on player respawn
-        if ply:GetSubRole() ~= ROLE_JACKAL then return end
-        ply:GiveEquipmentItem("item_ttt_armor")
-    end)
+	hook.Add("PlayerSpawn", "TTT2JackalGiveEquipRespawn", function(ply, old, new) -- called on player respawn
+		if ply:GetSubRole() ~= ROLE_JACKAL then return end
+		ply:GiveEquipmentItem("item_ttt_armor")
+	end)
 end
