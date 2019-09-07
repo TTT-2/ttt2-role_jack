@@ -118,12 +118,9 @@ if SERVER then
 
 	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveEquip", function(ply, old, new)
 		if not ROLE_SIDEKICK then return end
-		
-		print(new)
-		print(old)
 
 		if new == ROLE_JACKAL then
-            InitRoleJackal(ply)
+			InitRoleJackal(ply)
 		elseif old == ROLE_JACKAL then
 			print("deinit role jackal")
 			DeinitRoleJackal(ply)
