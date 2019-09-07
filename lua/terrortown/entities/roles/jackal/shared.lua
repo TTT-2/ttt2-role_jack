@@ -19,8 +19,8 @@ JACKAL_EQUIPMENT = {
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
 roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
-		icon = "vgui/ttt/dynamic/roles/icon_jack",
-		color = Color(100, 190, 205, 255)
+	icon = "vgui/ttt/dynamic/roles/icon_jack",
+	color = Color(100, 190, 205, 255)
 })
 
 ROLE.Base = "ttt_role_base"
@@ -79,9 +79,6 @@ hook.Add("TTT2FinishedLoading", "JackInitT", function()
 		LANG.AddToLanguage("English", "ev_win_" .. TEAM_JACKAL, "The evil Jackal won the round!")
 		LANG.AddToLanguage("English", "credit_" .. JACKAL.abbr .. "_all", "Jackals, you have been awarded {num} equipment credit(s) for your performance.")
 
-		---------------------------------
-
-		-- maybe this language as well...
 		LANG.AddToLanguage("Deutsch", JACKAL.name, "Jackal")
 		LANG.AddToLanguage("Deutsch", TEAM_JACKAL, "TEAM Jackal")
 		LANG.AddToLanguage("Deutsch", "info_popup_" .. JACKAL.name,
@@ -109,19 +106,39 @@ if SERVER then
 		rolesTable[ROLE_JACKAL] = 0
 	end)
 
+	local function InitRoleJackal(ply)
+		ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
+		ply:GiveEquipmentItem("item_ttt_armor")
+	end
+
+	local function DeinitRoleJackal(ply)
+		ply:StripWeapon("weapon_ttt2_sidekickdeagle")
+		ply:RemoveEquipmentItem("item_ttt_armor")
+	end
+
 	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveEquip", function(ply, old, new)
 		if not ROLE_SIDEKICK then return end
 		
+		print(new)
+		print(old)
+
 		if new == ROLE_JACKAL then
-			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
-			ply:GiveEquipmentItem("item_ttt_armor")
+            InitRoleJackal(ply)
 		elseif old == ROLE_JACKAL then
-			ply:StripWeapon("weapon_ttt2_sidekickdeagle")
+			print("deinit role jackal")
+			DeinitRoleJackal(ply)
 		end
 	end)
 
 	hook.Add("PlayerSpawn", "TTT2JackalGiveEquipRespawn", function(ply, old, new) -- called on player respawn
-		if ply:GetSubRole() ~= ROLE_JACKAL then return end
-		ply:GiveEquipmentItem("item_ttt_armor")
+		-- this is an ugly workaround, since on calling of the player respawn hook, the player can not yet receive items
+		timer.Simple(0.1, function()
+			if GetRoundState() ~= ROUND_ACTIVE then return end
+
+			if not ROLE_SIDEKICK then return end
+			if ply:GetSubRole() ~= ROLE_JACKAL then return end
+
+			InitRoleJackal(ply)
+		end)
 	end)
 end
