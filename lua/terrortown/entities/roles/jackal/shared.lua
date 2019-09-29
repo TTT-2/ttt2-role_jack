@@ -4,18 +4,6 @@ if SERVER then
 	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_jack.vmt")
 end
 
-JACKAL_EQUIPMENT = {
-	"weapon_ttt_flaregun",
-	"weapon_ttt_knife",
-	"weapon_ttt_phammer",
-	"weapon_ttt_push",
-	"weapon_ttt_sipistol",
-	"weapon_ttt_decoy",
-	"weapon_ttt2_sidekickdeagle",
-	EQUIP_ARMOR,
-	EQUIP_DISGUISE
-}
-
 -- creates global var "TEAM_JACKAL" and other required things
 -- TEAM_[name], data: e.g. icon, color, ...
 roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
@@ -63,35 +51,30 @@ hook.Add("TTT2FinishedLoading", "JackInitT", function()
 	end
 
 	if CLIENT then
-		-- setup here is not necessary but if you want to access the role data, you need to start here
-		-- setup basic translation !
+		-- Role specific language elements
 		LANG.AddToLanguage("English", JACKAL.name, "Jackal")
 		LANG.AddToLanguage("English", TEAM_JACKAL, "TEAM Jackal")
-		LANG.AddToLanguage("English", "info_popup_" .. JACKAL.name,
-			[[You are the Jackal!
-			Try to kill each other role! It's hard, so maybe you need a Sidekick...]])
-		LANG.AddToLanguage("English", "body_found_" .. JACKAL.abbr, "This was a Jackal...")
+		LANG.AddToLanguage("English", "info_popup_" .. JACKAL.name, [[You are the Jackal! Try to kill everyone but you! Make use of your sidekick deagle to shoot yourself a partner in crime.]])
+		LANG.AddToLanguage("English", "body_found_" .. JACKAL.abbr, "They were a Jackal!")
 		LANG.AddToLanguage("English", "search_role_" .. JACKAL.abbr, "This person was a Jackal!")
 		LANG.AddToLanguage("English", "target_" .. JACKAL.name, "Jackal")
 		LANG.AddToLanguage("English", "ttt2_desc_" .. JACKAL.name, [[The Jackal needs to win alone or with his sidekick!]])
-		LANG.AddToLanguage("English", "hilite_win_" .. TEAM_JACKAL, "THE JACK WON") -- name of base role of a team -> maybe access with GetTeamRoles(ROLES.SERIALKILLER.team)[1].name
-		LANG.AddToLanguage("English", "win_" .. TEAM_JACKAL, "The Jackal has won!") -- teamname
+		LANG.AddToLanguage("English", "hilite_win_" .. TEAM_JACKAL, "THE JACK WON")
+		LANG.AddToLanguage("English", "win_" .. TEAM_JACKAL, "The Jackal has won!")
 		LANG.AddToLanguage("English", "ev_win_" .. TEAM_JACKAL, "The evil Jackal won the round!")
 		LANG.AddToLanguage("English", "credit_" .. JACKAL.abbr .. "_all", "Jackals, you have been awarded {num} equipment credit(s) for your performance.")
 
-		LANG.AddToLanguage("Deutsch", JACKAL.name, "Jackal")
-		LANG.AddToLanguage("Deutsch", TEAM_JACKAL, "TEAM Jackal")
-		LANG.AddToLanguage("Deutsch", "info_popup_" .. JACKAL.name,
-			[[Du bist ein Jackal!
-			Versuche jede andere Rolle zu töten! Es ist schwer, also brauchst du vielleicht einen Sidekick]])
-		LANG.AddToLanguage("Deutsch", "body_found_" .. JACKAL.abbr, "Er war ein Jackal...")
-		LANG.AddToLanguage("Deutsch", "search_role_" .. JACKAL.abbr, "Diese Person war ein Jackal!")
-		LANG.AddToLanguage("Deutsch", "target_" .. JACKAL.name, "Jackal")
-		LANG.AddToLanguage("Deutsch", "ttt2_desc_" .. JACKAL.name, [[Der Jackal muss alleine oder mit seinem Sidekick gewinnen!]])
-		LANG.AddToLanguage("Deutsch", "hilite_win_" .. TEAM_JACKAL, "THE JACK WON") -- name of base role of a team -> maybe access with TEAM_JACKAL
-		LANG.AddToLanguage("Deutsch", "win_" .. TEAM_JACKAL, "Der Jackal hat gewonnen!") -- teamname
-		LANG.AddToLanguage("Deutsch", "ev_win_" .. TEAM_JACKAL, "Der böse Jackal hat die Runde gewonnen!")
-		LANG.AddToLanguage("Deutsch", "credit_" .. JACKAL.abbr .. "_all", "Jackale, euch wurde(n) {num} Ausrüstungs-Credit(s) für eure Leistung gegeben.")
+		LANG.AddToLanguage("Deutsch", JACKAL.name, "Schackal")
+		LANG.AddToLanguage("Deutsch", TEAM_JACKAL, "TEAM Schackal")
+		LANG.AddToLanguage("Deutsch", "info_popup_" .. JACKAL.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten! Nutze deine Sidekickdeagle, um dir einen Komplizen zu schießen.]])
+		LANG.AddToLanguage("Deutsch", "body_found_" .. JACKAL.abbr, "Er war ein Schackal!")
+		LANG.AddToLanguage("Deutsch", "search_role_" .. JACKAL.abbr, "Diese Person war ein Schackal!")
+		LANG.AddToLanguage("Deutsch", "target_" .. JACKAL.name, "Schackal")
+		LANG.AddToLanguage("Deutsch", "ttt2_desc_" .. JACKAL.name, [[Der Schackal muss alleine oder mit seinem Sidekick gewinnen!]])
+		LANG.AddToLanguage("Deutsch", "hilite_win_" .. TEAM_JACKAL, "THE JACK WON")
+		LANG.AddToLanguage("Deutsch", "win_" .. TEAM_JACKAL, "Der Schackal hat gewonnen!")
+		LANG.AddToLanguage("Deutsch", "ev_win_" .. TEAM_JACKAL, "Der böse Schackal hat die Runde gewonnen!")
+		LANG.AddToLanguage("Deutsch", "credit_" .. JACKAL.abbr .. "_all", "Schackale, euch wurden {num} Ausrüstungs-Credit(s) für eure Leistung gegeben.")
 	end
 end)
 
@@ -108,7 +91,7 @@ if SERVER then
 
 	-- Give Loadout on respawn and rolechange	
 	function ROLE:GiveRoleLoadout(ply, isRoleChange)
-		if isRoleChange then -- TODO: maybe give SiKi deagle if not used before
+		if isRoleChange then -- TODO: maybe give SiKi deagle on respawn if not used before
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
 		end
 		ply:GiveEquipmentItem("item_ttt_armor")
