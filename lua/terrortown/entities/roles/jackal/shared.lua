@@ -106,36 +106,17 @@ if SERVER then
 		rolesTable[ROLE_JACKAL] = 0
 	end)
 
-	local function InitRoleJackal(ply)
-		ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
+	-- Give Loadout on respawn and rolechange	
+	function ROLE:GiveRoleLoadout(ply, isRoleChange)
+		if not isRoleChange then -- TODO: maybe give SiKi deagle if not used before
+			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
+		end
 		ply:GiveEquipmentItem("item_ttt_armor")
 	end
 
-	local function DeinitRoleJackal(ply)
+	-- Remove Loadout on death and rolechange
+	function ROLE:RemoveRoleLoadout(ply, isRoleChange)
 		ply:StripWeapon("weapon_ttt2_sidekickdeagle")
 		ply:RemoveEquipmentItem("item_ttt_armor")
 	end
-
-	hook.Add("TTT2UpdateSubrole", "TTT2JackalGiveEquip", function(ply, old, new)
-		if not ROLE_SIDEKICK then return end
-
-		if new == ROLE_JACKAL then
-			InitRoleJackal(ply)
-		elseif old == ROLE_JACKAL then
-			print("deinit role jackal")
-			DeinitRoleJackal(ply)
-		end
-	end)
-
-	hook.Add("PlayerSpawn", "TTT2JackalGiveEquipRespawn", function(ply, old, new) -- called on player respawn
-		-- this is an ugly workaround, since on calling of the player respawn hook, the player can not yet receive items
-		timer.Simple(0.1, function()
-			if GetRoundState() ~= ROUND_ACTIVE then return end
-
-			if not ROLE_SIDEKICK then return end
-			if ply:GetSubRole() ~= ROLE_JACKAL then return end
-
-			InitRoleJackal(ply)
-		end)
-	end)
 end
