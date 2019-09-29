@@ -108,7 +108,7 @@ if SERVER then
 
 	-- Give Loadout on respawn and rolechange	
 	function ROLE:GiveRoleLoadout(ply, isRoleChange)
-		if not isRoleChange then -- TODO: maybe give SiKi deagle if not used before
+		if isRoleChange then -- TODO: maybe give SiKi deagle if not used before
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
 		end
 		ply:GiveEquipmentItem("item_ttt_armor")
