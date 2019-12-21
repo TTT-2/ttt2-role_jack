@@ -21,10 +21,10 @@ function ROLE:PreInitialize()
 	self.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
 	self.fallbackTable = {}
 	self.traitorCreditAward = true -- will receive credits on kill like a traitor
-	
+
 	self.defaultTeam = TEAM_JACKAL -- the team name: roles with same team name are working together
 	self.defaultEquipment = JACKAL_EQUIPMENT -- here you can set up your own default equipment
-	
+
 	self.conVarData = {
 		pct = 0.14, -- necessary: percentage of getting this role selected (per player)
 		maximum = 1, -- maximum amount of roles in a round
@@ -79,7 +79,7 @@ function ROLE:Initialize()
 	end
 end
 
-if SERVER then	
+if SERVER then
 	-- modify roles table of rolesetup addon
 	hook.Add("TTTAModifyRolesTable", "ModifyRoleJackToInno", function(rolesTable)
 		local jackals = rolesTable[ROLE_JACKAL]
@@ -90,17 +90,21 @@ if SERVER then
 		rolesTable[ROLE_JACKAL] = 0
 	end)
 
-	-- Give Loadout on respawn and rolechange	
+	-- Give Loadout on respawn and rolechange
 	function ROLE:GiveRoleLoadout(ply, isRoleChange)
-		if isRoleChange then -- TODO: maybe give SiKi deagle on respawn if not used before
+		if isRoleChange and WEPS.IsInstalled("weapon_ttt2_sidekickdeagle") then -- TODO: maybe give SiKi deagle on respawn if not used before
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
 		end
+
 		ply:GiveEquipmentItem("item_ttt_armor")
 	end
 
 	-- Remove Loadout on death and rolechange
 	function ROLE:RemoveRoleLoadout(ply, isRoleChange)
-		ply:StripWeapon("weapon_ttt2_sidekickdeagle")
+		if WEPS.IsInstalled("weapon_ttt2_sidekickdeagle") then
+			ply:StripWeapon("weapon_ttt2_sidekickdeagle")
+		end
+
 		ply:RemoveEquipmentItem("item_ttt_armor")
 	end
 end
