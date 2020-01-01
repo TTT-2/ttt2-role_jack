@@ -12,9 +12,8 @@ roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
 })
 
 function ROLE:PreInitialize()
-	self.color = Color(100, 190, 205, 255) -- ...
-	self.dkcolor = Color(36, 134, 152, 255) -- ...
-	self.bgcolor = Color(255, 188, 121, 255) -- ...
+	self.color = Color(100, 190, 205, 255)
+
 	self.abbr = "jack" -- abbreviation
 	self.surviveBonus = 0 -- bonus multiplier for every survive while another player was killed
 	self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
@@ -55,7 +54,8 @@ function ROLE:Initialize()
 		-- Role specific language elements
 		LANG.AddToLanguage("English", self.name, "Jackal")
 		LANG.AddToLanguage("English", self.defaultTeam, "TEAM Jackal")
-		LANG.AddToLanguage("English", "info_popup_" .. self.name, [[You are the Jackal! Try to kill everyone but you! Make use of your sidekick deagle to shoot yourself a partner in crime.]])
+		LANG.AddToLanguage("English", "info_popup_" .. self.name, [[You are the Jackal! Try to kill everyone but you!
+Make use of your sidekick deagle to shoot yourself a partner in crime.]])
 		LANG.AddToLanguage("English", "body_found_" .. self.abbr, "They were a Jackal!")
 		LANG.AddToLanguage("English", "search_role_" .. self.abbr, "This person was a Jackal!")
 		LANG.AddToLanguage("English", "target_" .. self.name, "Jackal")
@@ -67,7 +67,8 @@ function ROLE:Initialize()
 
 		LANG.AddToLanguage("Deutsch", self.name, "Schackal")
 		LANG.AddToLanguage("Deutsch", self.defaultTeam, "TEAM Schackal")
-		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten! Nutze deine Sidekickdeagle, um dir einen Komplizen zu schießen.]])
+		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten!
+Nutze deine Sidekickdeagle, um dir einen Komplizen zu schießen.]])
 		LANG.AddToLanguage("Deutsch", "body_found_" .. self.abbr, "Er war ein Schackal!")
 		LANG.AddToLanguage("Deutsch", "search_role_" .. self.abbr, "Diese Person war ein Schackal!")
 		LANG.AddToLanguage("Deutsch", "target_" .. self.name, "Schackal")
