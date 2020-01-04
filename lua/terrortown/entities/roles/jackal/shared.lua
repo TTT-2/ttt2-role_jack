@@ -97,7 +97,7 @@ if SERVER then
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
 		end
 
-		ply:GiveEquipmentItem("item_ttt_armor")
+		ply:GiveArmor(GetConVar("ttt_jackal_armor_value"):GetInt())
 	end
 
 	-- Remove Loadout on death and rolechange
@@ -106,6 +106,6 @@ if SERVER then
 			ply:StripWeapon("weapon_ttt2_sidekickdeagle")
 		end
 
-		ply:RemoveEquipmentItem("item_ttt_armor")
+		ply:RemoveArmor(GetConVar("ttt_jackal_armor_value"):GetInt())
 	end
 end
