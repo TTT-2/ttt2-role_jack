@@ -19,6 +19,10 @@ function ROLE:PreInitialize()
 	self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
 	self.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
 	self.fallbackTable = {}
+	if not GetConVar("ttt_jackal_spawn_siki_deagle"):GetBoolean() then 
+		table.insert(self.fallbackTable, {id = "weapon_ttt2_sidekickdeagle"}) 
+	end
+	
 	self.traitorCreditAward = true -- will receive credits on kill like a traitor
 
 	self.defaultTeam = TEAM_JACKAL -- the team name: roles with same team name are working together
@@ -93,7 +97,8 @@ if SERVER then
 
 	-- Give Loadout on respawn and rolechange
 	function ROLE:GiveRoleLoadout(ply, isRoleChange)
-		if isRoleChange and WEPS.IsInstalled("weapon_ttt2_sidekickdeagle") then -- TODO: maybe give SiKi deagle on respawn if not used before
+		if isRoleChange and WEPS.IsInstalled("weapon_ttt2_sidekickdeagle")
+			and GetConVar("ttt_jackal_spawn_siki_deagle"):GetBool() then -- TODO: maybe give SiKi deagle on respawn if not used before
 			ply:GiveEquipmentWeapon("weapon_ttt2_sidekickdeagle")
 		end
 
