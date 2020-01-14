@@ -1,5 +1,6 @@
 -- replicated convars have to be created on both client and server
 CreateConVar("ttt_jackal_armor_value", 30, {FCVAR_ARCHIVE, FCVAR_NOTIFY, FCVAR_REPLICATED})
+CreateConVar("ttt_jackal_spawn_siki_deeagle", true, {FCVAR_ARCHIVE, FCVAR_NOTIFY, FCVAR_REPLICATED})
 
 hook.Add("TTTUlxDynamicRCVars", "ttt2_ulx_dynamic_jackal_convars", function(tbl)
 	tbl[ROLE_JACKAL] = tbl[ROLE_JACKAL] or {}
