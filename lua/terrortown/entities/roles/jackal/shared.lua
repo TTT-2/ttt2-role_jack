@@ -19,10 +19,11 @@ function ROLE:PreInitialize()
 	self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
 	self.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
 	self.fallbackTable = {}
-	if not GetConVar("ttt_jackal_spawn_siki_deagle"):GetBoolean() then 
-		table.insert(self.fallbackTable, {id = "weapon_ttt2_sidekickdeagle"}) 
+
+	if not GetConVar("ttt_jackal_spawn_siki_deagle"):GetBool() then
+		table.insert(self.fallbackTable, {id = "weapon_ttt2_sidekickdeagle"})
 	end
-	
+
 	self.traitorCreditAward = true -- will receive credits on kill like a traitor
 
 	self.defaultTeam = TEAM_JACKAL -- the team name: roles with same team name are working together
