@@ -69,7 +69,23 @@ Make use of your sidekick deagle to shoot yourself a partner in crime.]])
 		LANG.AddToLanguage("English", "win_" .. self.defaultTeam, "The Jackal has won!")
 		LANG.AddToLanguage("English", "ev_win_" .. self.defaultTeam, "The evil Jackal won the round!")
 		LANG.AddToLanguage("English", "credit_" .. self.abbr .. "_all", "Jackals, you have been awarded {num} equipment credit(s) for your performance.")
-
+		
+		LANG.AddToLanguage("Italian", self.name, "Sciacallo")
+		LANG.AddToLanguage("Italian", self.defaultTeam, "TEAM Sciacallo")
+		LANG.AddToLanguage("Italian", "info_popup_" .. self.name, [[Sei lo Sciacallo! Prova ad uccidere tutti tranne te!
+Usa la tua deagle spalla per colpire qualcuno e farlo diventare la tua spalla.]])
+		LANG.AddToLanguage("Italian", "body_found_" .. self.abbr, "Era uno Sciacallo!")
+		LANG.AddToLanguage("Italian", "search_role_" .. self.abbr, "Questa persona era uno Sciacallo!")
+		LANG.AddToLanguage("Italian", "target_" .. self.name, "Sciacallo")
+		LANG.AddToLanguage("Italian", "ttt2_desc_" .. self.name, [[Lo Sciacallo deve vincere da solo o con la sua spalla!]])
+		LANG.AddToLanguage("Italian", "hilite_win_" .. self.defaultTeam, "GLI SCIACALLI HANNO VINTO")
+		LANG.AddToLanguage("Italian", "win_" .. self.defaultTeam, "Gli Sciacalli hanno vinto!")
+		LANG.AddToLanguage("Italian", "ev_win_" .. self.defaultTeam, "Il malvagio Sciacallo ha vinto il round!")
+		if num == 1 then
+			LANG.AddToLanguage("Italian", "credit_" .. self.abbr .. "_all", "Sciacalli, vi è stato dato {num} credito per la vostra performance.")
+		else
+			LANG.AddToLanguage("Italian", "credit_" .. self.abbr .. "_all", "Sciacalli, vi sono stati dati {num} crediti per la vostra performance.")
+		end
 		LANG.AddToLanguage("Deutsch", self.name, "Schackal")
 		LANG.AddToLanguage("Deutsch", self.defaultTeam, "TEAM Schackal")
 		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten!
