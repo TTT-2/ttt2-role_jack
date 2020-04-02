@@ -81,11 +81,8 @@ Usa la tua deagle spalla per colpire qualcuno e farlo diventare la tua spalla.]]
 		LANG.AddToLanguage("Italian", "hilite_win_" .. self.defaultTeam, "GLI SCIACALLI HANNO VINTO")
 		LANG.AddToLanguage("Italian", "win_" .. self.defaultTeam, "Gli Sciacalli hanno vinto!")
 		LANG.AddToLanguage("Italian", "ev_win_" .. self.defaultTeam, "Il malvagio Sciacallo ha vinto il round!")
-		if num == 1 then
-			LANG.AddToLanguage("Italian", "credit_" .. self.abbr .. "_all", "Sciacalli, vi è stato dato {num} credito per la vostra performance.")
-		else
-			LANG.AddToLanguage("Italian", "credit_" .. self.abbr .. "_all", "Sciacalli, vi sono stati dati {num} crediti per la vostra performance.")
-		end
+		LANG.AddToLanguage("Italian", "credit_" .. self.abbr .. "_all", "Sciacalli, vi sono stati dati {num} credito/i per la vostra performance.")
+
 		LANG.AddToLanguage("Deutsch", self.name, "Schackal")
 		LANG.AddToLanguage("Deutsch", self.defaultTeam, "TEAM Schackal")
 		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten!
