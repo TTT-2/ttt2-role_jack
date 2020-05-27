@@ -54,35 +54,6 @@ function ROLE:Initialize()
 		-- because it calls hooks and is doing some networking
 		self.networkRoles = {JESTER}
 	end
-
-	if CLIENT then
-		-- Role specific language elements
-		LANG.AddToLanguage("English", self.name, "Jackal")
-		LANG.AddToLanguage("English", self.defaultTeam, "TEAM Jackal")
-		LANG.AddToLanguage("English", "info_popup_" .. self.name, [[You are the Jackal! Try to kill everyone but you!
-Make use of your sidekick deagle to shoot yourself a partner in crime.]])
-		LANG.AddToLanguage("English", "body_found_" .. self.abbr, "They were a Jackal!")
-		LANG.AddToLanguage("English", "search_role_" .. self.abbr, "This person was a Jackal!")
-		LANG.AddToLanguage("English", "target_" .. self.name, "Jackal")
-		LANG.AddToLanguage("English", "ttt2_desc_" .. self.name, [[The Jackal needs to win alone or with his sidekick!]])
-		LANG.AddToLanguage("English", "hilite_win_" .. self.defaultTeam, "THE JACK WON")
-		LANG.AddToLanguage("English", "win_" .. self.defaultTeam, "The Jackal has won!")
-		LANG.AddToLanguage("English", "ev_win_" .. self.defaultTeam, "The evil Jackal won the round!")
-		LANG.AddToLanguage("English", "credit_" .. self.abbr .. "_all", "Jackals, you have been awarded {num} equipment credit(s) for your performance.")
-
-		LANG.AddToLanguage("Deutsch", self.name, "Schackal")
-		LANG.AddToLanguage("Deutsch", self.defaultTeam, "TEAM Schackal")
-		LANG.AddToLanguage("Deutsch", "info_popup_" .. self.name, [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten!
-Nutze deine Sidekickdeagle, um dir einen Komplizen zu schießen.]])
-		LANG.AddToLanguage("Deutsch", "body_found_" .. self.abbr, "Er war ein Schackal!")
-		LANG.AddToLanguage("Deutsch", "search_role_" .. self.abbr, "Diese Person war ein Schackal!")
-		LANG.AddToLanguage("Deutsch", "target_" .. self.name, "Schackal")
-		LANG.AddToLanguage("Deutsch", "ttt2_desc_" .. self.name, [[Der Schackal muss alleine oder mit seinem Sidekick gewinnen!]])
-		LANG.AddToLanguage("Deutsch", "hilite_win_" .. self.defaultTeam, "THE JACK WON")
-		LANG.AddToLanguage("Deutsch", "win_" .. self.defaultTeam, "Der Schackal hat gewonnen!")
-		LANG.AddToLanguage("Deutsch", "ev_win_" .. self.defaultTeam, "Der böse Schackal hat die Runde gewonnen!")
-		LANG.AddToLanguage("Deutsch", "credit_" .. self.abbr .. "_all", "Schackale, euch wurden {num} Ausrüstungs-Credit(s) für eure Leistung gegeben.")
-	end
 end
 
 if SERVER then
