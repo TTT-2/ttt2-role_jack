@@ -2,7 +2,7 @@ L = LANG.GetLanguageTableReference("Español")
 
 -- GENERAL ROLE LANGUAGE STRINGS
 L[JACKAL.name] = "Zorro"
-L[JACKAL.defaultTeam] = "EQUIPO Zorros"
+L[JACKAL.defaultTeam] = "Equipo Zorros"
 L["hilite_win_" .. JACKAL.defaultTeam] = "EL ZORRO GANA"
 L["win_" .. JACKAL.defaultTeam] = "¡El Zorro ha ganado!"
 L["info_popup_" .. JACKAL.name] = [[Eres el Zorro! Te equipo empieza contigo, pero puede terminar en muchos.

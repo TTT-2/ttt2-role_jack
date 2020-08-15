@@ -2,8 +2,8 @@ L = LANG.GetLanguageTableReference("deutsch")
 
 -- GENERAL ROLE LANGUAGE STRINGS
 L[JACKAL.name] = "Schackal"
-L[JACKAL.defaultTeam] = "TEAM Schackal"
-L["hilite_win_" .. JACKAL.defaultTeam] = "DER SCHAKAL GEWINNT"
+L[JACKAL.defaultTeam] = "Team Schackal"
+L["hilite_win_" .. JACKAL.defaultTeam] = "DIE SCHAKALE GEWINNEN"
 L["win_" .. JACKAL.defaultTeam] = "Der Schackal hat gewonnen!"
 L["info_popup_" .. JACKAL.name] = [[Du bist ein Schackal! Versuche jeden anderen Spieler zu töten!
 Nutze deine Sidekickdeagle, um dir einen Komplizen zu schießen.]]
