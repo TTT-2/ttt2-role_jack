@@ -12,4 +12,4 @@ L["search_role_" .. JACKAL.abbr] = "Cette personne était un Chacal!"
 L["ev_win_" .. JACKAL.defaultTeam] = "Le méchant Chacal a gagné la manche!"
 L["target_" .. JACKAL.name] = "Chacal"
 L["ttt2_desc_" .. JACKAL.name] = [[Le Chacal doit gagner seul ou avec ses Acolyte!]]
-L["credit_" .. JACKAL.abbr .. "_all"] = "Chacal, vous avez reçu {num} crédit(s) d'équipement pour vos performances."
+L["credit_" .. JACKAL.abbr .. "_all"] = "Chacal, vous avez été récompensé de {num} crédit(s) d'équipement pour votre performances."
