@@ -4,9 +4,7 @@ if SERVER then
 	resource.AddFile("materials/vgui/ttt/dynamic/roles/icon_jack.vmt")
 end
 
--- creates global var "TEAM_JACKAL" and other required things
--- TEAM_[name], data: e.g. icon, color, ...
-roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
+roles.InitCustomTeam(ROLE.name, {
 	icon = "vgui/ttt/dynamic/roles/icon_jack",
 	color = Color(100, 190, 205, 255)
 })
@@ -14,27 +12,31 @@ roles.InitCustomTeam(ROLE.name, { -- this creates the var "TEAM_JACKAL"
 function ROLE:PreInitialize()
 	self.color = Color(100, 190, 205, 255)
 
-	self.abbr = "jack" -- abbreviation
-	self.surviveBonus = 0 -- bonus multiplier for every survive while another player was killed
-	self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
-	self.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
+	self.abbr = "jack"
+	self.score.surviveBonusMultiplier = 0.5
+	self.score.timelimitMultiplier = -0.5
+	self.score.killsMultiplier = 2
+	self.score.teamKillsMultiplier = -16
+	self.score.bodyFoundMuliplier = 0
+
 	self.fallbackTable = {}
 
 	if not GetConVar("ttt_jackal_spawn_siki_deagle"):GetBool() then
 		table.insert(self.fallbackTable, {id = "weapon_ttt2_sidekickdeagle"})
 	end
 
-	self.traitorCreditAward = true -- will receive credits on kill like a traitor
+	-- will receive credits on kill like a traitor
+	self.traitorCreditAward = true
 
-	self.defaultTeam = TEAM_JACKAL -- the team name: roles with same team name are working together
-	self.defaultEquipment = JACKAL_EQUIPMENT -- here you can set up your own default equipment
+	self.defaultTeam = TEAM_JACKAL
+	self.defaultEquipment = JACKAL_EQUIPMENT
 
 	self.conVarData = {
-		pct = 0.14, -- necessary: percentage of getting this role selected (per player)
-		maximum = 1, -- maximum amount of roles in a round
-		minPlayers = 7, -- minimum amount of players until this role is able to get selected
-		credits = 3, -- the starting credits of a specific role
-		togglable = true, -- option to toggle a role for a client if possible (F1 menu)
+		pct = 0.14,
+		maximum = 1,
+		minPlayers = 7,
+		credits = 3,
+		togglable = true,
 		random = 50
 	}
 end
