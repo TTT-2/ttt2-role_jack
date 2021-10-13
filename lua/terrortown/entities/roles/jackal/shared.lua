@@ -25,9 +25,6 @@ function ROLE:PreInitialize()
 		table.insert(self.fallbackTable, {id = "weapon_ttt2_sidekickdeagle"})
 	end
 
-	-- will receive credits on kill like a traitor
-	self.traitorCreditAward = true
-
 	self.defaultTeam = TEAM_JACKAL
 	self.defaultEquipment = JACKAL_EQUIPMENT
 
@@ -35,9 +32,11 @@ function ROLE:PreInitialize()
 		pct = 0.14,
 		maximum = 1,
 		minPlayers = 7,
-		credits = 3,
 		togglable = true,
-		random = 50
+		random = 50,
+		credits = 3,
+		creditsAwardDeadEnable = 1,
+		creditsAwardKillEnable = 1
 	}
 end
 
@@ -46,17 +45,6 @@ hook.Add("InitFallbackShops", "JackInitFallback", function()
 	-- init fallback shop
 	InitFallbackShop(JACKAL, table.Merge(JACKAL.fallbackTable, TRAITOR.fallbackTable)) -- merge jackal equipment with traitor equipment
 end)
-
-function ROLE:Initialize()
-	if SERVER and JESTER then
-		-- add a easy role filtering to receive all jesters
-		-- but just do it, when the role was created, then update it with recommended function
-		-- theoretically this function is not necessary to call, but maybe there are some modifications
-		-- of other addons. So it's better to use this function
-		-- because it calls hooks and is doing some networking
-		self.networkRoles = {JESTER}
-	end
-end
 
 if SERVER then
 	-- modify roles table of rolesetup addon
