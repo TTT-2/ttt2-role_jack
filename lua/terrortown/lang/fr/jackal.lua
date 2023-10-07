@@ -13,3 +13,7 @@ L["ev_win_" .. JACKAL.defaultTeam] = "Le méchant Chacal a gagné la manche!"
 L["target_" .. JACKAL.name] = "Chacal"
 L["ttt2_desc_" .. JACKAL.name] = [[Le Chacal doit gagner seul ou avec ses Acolyte!]]
 L["credit_" .. JACKAL.abbr .. "_all"] = "Chacal, vous avez été récompensé de {num} crédit(s) d'équipement pour votre performances."
+
+-- OTHER ROLE LANGUAGE STRINGS
+--L["label_jackal_armor_value"] = "Armor points"
+--L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"

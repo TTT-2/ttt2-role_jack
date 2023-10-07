@@ -1,4 +1,4 @@
-L = LANG.GetLanguageTableReference("japanese")
+local L = LANG.GetLanguageTableReference("japanese")
 
 -- GENERAL ROLE LANGUAGE STRINGS
 L[JACKAL.name] = "Jackal"
@@ -13,3 +13,7 @@ L["ev_win_" .. JACKAL.defaultTeam] = "漁夫の利好きなJackalが勝利した
 L["target_" .. JACKAL.name] = "Jackal"
 L["ttt2_desc_" .. JACKAL.name] = [[Jackalは単独か、Sidekickとともに生き残れば勝ちだ！]]
 L["credit_" .. JACKAL.abbr .. "_all"] = "Jackalよ、任務遂行により、{num}個のクレジットを受け取ったぞ。"
+
+-- OTHER ROLE LANGUAGE STRINGS
+--L["label_jackal_armor_value"] = "Armor points"
+--L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"

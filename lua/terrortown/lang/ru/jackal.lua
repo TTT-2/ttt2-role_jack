@@ -1,4 +1,4 @@
-L = LANG.GetLanguageTableReference("ru")
+local L = LANG.GetLanguageTableReference("ru")
 
 -- GENERAL ROLE LANGUAGE STRINGS
 L[JACKAL.name] = "Шакал"
@@ -13,3 +13,7 @@ L["ev_win_" .. JACKAL.defaultTeam] = "Злые Шакалы победили!"
 L["target_" .. JACKAL.name] = "Шакал"
 L["ttt2_desc_" .. JACKAL.name] = [[Шакалу нужно побеждать в одиночку или со своим сообщником!]]
 L["credit_" .. JACKAL.abbr .. "_all"] = "Шакалы, за вашу работу вы получили {num} кредит(а/ов)."
+
+-- OTHER ROLE LANGUAGE STRINGS
+--L["label_jackal_armor_value"] = "Armor points"
+--L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"
