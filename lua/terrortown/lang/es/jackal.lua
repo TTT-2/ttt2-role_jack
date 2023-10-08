@@ -15,5 +15,5 @@ L["ttt2_desc_" .. JACKAL.name] = [[El Zorro gana como caza, solo. Sin embargo, p
 L["credit_" .. JACKAL.abbr .. "_all"] = "Zorros, han sido recompensados con {num} crédito(s) por su desempeño."
 
 -- OTHER ROLE LANGUAGE STRINGS
---L["label_jackal_armor_value"] = "Armor points"
---L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"
+--L["label_jackal_armor_value"] = "Armor points on spawn"
+--L["label_jackal_spawn_siki_deagle"] = "Enable spawning with a sidekick deagle"

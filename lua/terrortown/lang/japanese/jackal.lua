@@ -15,5 +15,5 @@ L["ttt2_desc_" .. JACKAL.name] = [[Jackalは単独か、Sidekickとともに生�
 L["credit_" .. JACKAL.abbr .. "_all"] = "Jackalよ、任務遂行により、{num}個のクレジットを受け取ったぞ。"
 
 -- OTHER ROLE LANGUAGE STRINGS
---L["label_jackal_armor_value"] = "Armor points"
---L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"
+--L["label_jackal_armor_value"] = "Armor points on spawn"
+--L["label_jackal_spawn_siki_deagle"] = "Enable spawning with a sidekick deagle"

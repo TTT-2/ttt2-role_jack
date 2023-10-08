@@ -15,5 +15,5 @@ L["ttt2_desc_" .. JACKAL.name] = [[The Jackal needs to win alone or with his sid
 L["credit_" .. JACKAL.abbr .. "_all"] = "Jackals, you have been awarded {num} equipment credit(s) for your performance."
 
 -- OTHER ROLE LANGUAGE STRINGS
-L["label_jackal_armor_value"] = "Armor points"
-L["label_jackal_spawn_siki_deagle"] = "Spawn with Sidekick Deagle"
+L["label_jackal_armor_value"] = "Armor points on spawn"
+L["label_jackal_spawn_siki_deagle"] = "Enable spawning with a sidekick deagle"

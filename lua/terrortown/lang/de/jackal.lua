@@ -15,5 +15,5 @@ L["ttt2_desc_" .. JACKAL.name] = [[Der Schakal muss alleine oder mit seinem Side
 L["credit_" .. JACKAL.abbr .. "_all"] = "Schakale, euch wurden {num} Ausrüstungs-Credit(s) für eure Leistung gegeben."
 
 -- OTHER ROLE LANGUAGE STRINGS
-L["label_jackal_armor_value"] = "Rüstungspunkte"
-L["label_jackal_spawn_siki_deagle"] = "Mit Sidekick Deagle spawnen"
+L["label_jackal_armor_value"] = "Rüstungspunkte beim Spawnen"
+L["label_jackal_spawn_siki_deagle"] = "Aktiviere das Spawnen mit einer Sidekickdeagle"
