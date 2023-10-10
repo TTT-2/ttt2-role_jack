@@ -76,3 +76,22 @@ if SERVER then
 		ply:RemoveArmor(GetConVar("ttt_jackal_armor_value"):GetInt())
 	end
 end
+
+if CLIENT then
+	function ROLE:AddToSettingsMenu(parent)
+		local form = vgui.CreateTTT2Form(parent, "header_roles_additional")
+
+		form:MakeSlider({
+			serverConvar = "ttt_jackal_armor_value",
+			label = "label_jackal_armor_value",
+			min = 0,
+			max = 100,
+			decimal = 0
+		})
+
+		form:MakeCheckBox({
+			serverConvar = "ttt_jackal_spawn_siki_deagle",
+			label = "label_jackal_spawn_siki_deagle"
+		})
+	end
+end
